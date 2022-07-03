@@ -37,7 +37,7 @@
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.4.3",
+    "@remix-run/dev": "^1.6.3",
     "@remix-run/eslint-config": "^1.4.3",
     "@testing-library/cypress": "^8.0.2",
     "@types/bcryptjs": "^2.4.2",
