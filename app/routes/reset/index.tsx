@@ -1,6 +1,6 @@
 import { ActionFunction, json } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { supabase } from "~/models/user.server";
 import { validateEmail } from "~/utils";
 
@@ -45,11 +45,11 @@ export const action: ActionFunction = async ({ request }) => {
   // }
 };
 
-export default function Reset() {
+export default function ResetIndexPage() {
   const actionData = useActionData() as ActionData;
   const emailRef = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (actionData?.errors?.email) {
       emailRef?.current?.focus();
     }
