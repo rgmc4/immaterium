@@ -1,4 +1,3 @@
-import bcrypt from "bcryptjs";
 import { createClient } from "@supabase/supabase-js";
 import invariant from "tiny-invariant";
 
@@ -26,7 +25,7 @@ export async function createUser(email: string, password: string) {
   });
 
   // get the user profile after created
-  const profile = await getProfileByEmail(data?.user?.email);
+  const profile = await getProfileByEmail(data.user?.email);
 
   return profile;
 }
@@ -60,7 +59,7 @@ export async function verifyLogin(email: string, password: string) {
   });
 
   if (error) return undefined;
-  const profile = await getProfileByEmail(data?.user?.email);
+  const profile = await getProfileByEmail(data.user?.email);
 
   return profile;
 }
