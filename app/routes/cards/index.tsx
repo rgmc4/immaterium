@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import { useCardsRouteData } from "~/hooks";
 import { StatLine } from "./components";
 

@@ -1,6 +1,6 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { getCards } from "~/models/card.server";
 import type { Card } from "~/models/card.server";
 
@@ -18,18 +18,7 @@ export default function CardsPage() {
 
   return (
     <div className="flex h-full min-h-screen flex-col">
-      <Header />
       <Outlet />
     </div>
-  );
-}
-
-function Header() {
-  return (
-    <header className="flex items-center justify-between bg-slate-800 p-4 text-white">
-      <h1 className="text-3xl font-bold">
-        <Link to=".">Cards</Link>
-      </h1>
-    </header>
   );
 }
