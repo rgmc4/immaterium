@@ -45,6 +45,8 @@ export type CardType =
 export async function getCards() {
   const { data } = await supabase
     .from("cards")
-    .select("*, sets (name), cycles (name), sectors (name)");
+    .select("*, sets (name), cycles (name), sectors (name)")
+    .not("cycle_id", "in", "(7, 8, 14)")
+    .order("sort_id");
   return data;
 }

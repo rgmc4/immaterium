@@ -10,7 +10,11 @@ export default function CardDetailsPage() {
   return (
     <div>
       <h3 className="text-2xl font-bold">
-        {card ? card.name : "Card not found"}
+        {card ? (
+          <img src={`/assets/cards/${card.key}.webp`} alt="test" />
+        ) : (
+          "Card not found"
+        )}
       </h3>
     </div>
   );

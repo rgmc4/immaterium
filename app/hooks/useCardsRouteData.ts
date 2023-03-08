@@ -8,7 +8,7 @@ export function useCardsRouteData(cardId = "") {
   };
 
   const card = cardId
-    ? cardsData.cards.find((card) => card.id === cardId)
+    ? cardsData.cards.find((card) => card.key === cardId)
     : null;
 
   return {
