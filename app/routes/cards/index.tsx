@@ -6,6 +6,7 @@ export default function CardsIndexPage() {
   const { cards } = useCardsRouteData();
 
   const headers = [
+    "Key",
     "Name",
     "Type",
     "Faction",
@@ -44,9 +45,9 @@ export default function CardsIndexPage() {
                 </tr>
               </thead>
               <tbody className="divide-y">
-                {cards.map((card) => (
-                  <StatLine key={card.id} card={card} />
-                ))}
+                {cards
+                  ? cards.map((card) => <StatLine key={card.id} card={card} />)
+                  : null}
               </tbody>
             </table>
           </div>

@@ -8,6 +8,7 @@ type loaderData = {
 export function StatLine({ card }: loaderData) {
   return (
     <tr key={card.key}>
+      <td>{card.key}</td>
       <td className="px-6 py-4 text-sm font-medium text-gray-900">
         <Link to={card.key.toString()}>{card.name}</Link>
       </td>
