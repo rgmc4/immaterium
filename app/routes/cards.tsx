@@ -1,11 +1,11 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import { getCards } from "~/models/card.server";
+import { getAllCards } from "~/models/card.server";
 import type { Card } from "~/models/card.server";
 
 export const loader: LoaderFunction = async () => {
-  const cards = await getCards();
+  const cards = await getAllCards();
   return json({ cards });
 };
 
