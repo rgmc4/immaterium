@@ -33,6 +33,13 @@ export type Card = {
   errata_text: string;
 };
 
+export type HotLink = {
+  url: string;
+};
+
+export type CardFetchData =
+  | Pick<Card, "key" | "name" | "full_ability_text"> & HotLink;
+
 export type CardType =
   | "Warlord"
   | "Synapse"
@@ -42,11 +49,38 @@ export type CardType =
   | "Support"
   | "Planet";
 
-export async function getCards() {
+export async function getAllCards() {
   const { data } = await supabase
     .from("cards")
     .select("*, sets (name), cycles (name), sectors (name)")
     .not("cycle_id", "in", "(7, 8, 14)")
     .order("sort_id");
   return data;
+}
+
+const defaultCard: CardFetchData = {
+  name: "",
+  key: "",
+  full_ability_text: "",
+  url: `http://localhost:3000/assets/cards/default.webp`,
+};
+
+export async function getCardFetchData(
+  searchTerm: string | null | undefined
+): Promise<CardFetchData> {
+  let cardData: CardFetchData = defaultCard;
+
+  if (searchTerm && searchTerm.length >= 3) {
+    const { data } = await supabase
+      .rpc("search_cards", {
+        card_term: searchTerm,
+      })
+      .returns<CardFetchData>()
+      .single();
+    if (data) {
+      cardData = data;
+      cardData.url = `http://localhost:3000/assets/cards/${data.key}.webp`;
+    }
+  }
+  return cardData;
 }
