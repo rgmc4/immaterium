@@ -7,7 +7,7 @@ import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { createUserSession, getUserId } from "~/session.server";
 import { createUser, getProfileByEmail } from "~/models/user.server";
-import { validateEmail } from "~/utils";
+import { validateEmail } from "~/utilities/utils";
 import * as React from "react";
 
 export const meta: MetaFunction = () => {
