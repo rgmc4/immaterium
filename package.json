@@ -29,7 +29,7 @@
     "@netlify/functions": "^1.4.0",
     "@remix-run/netlify": "^1.16.1",
     "@remix-run/node": "^1.14.1",
-    "@remix-run/react": "^1.14.1",
+    "@remix-run/react": "^1.17.0",
     "@remix-run/serve": "^1.14.1",
     "@supabase/supabase-js": "^2.22.0",
     "bcryptjs": "^2.4.3",
